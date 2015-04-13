@@ -1,0 +1,48 @@
+C51 COMPILER V8.02   串口通信                                                              04/13/2015 22:55:11 PAGE 1   
+
+
+C51 COMPILER V8.02, COMPILATION OF MODULE 串口通信
+OBJECT MODULE PLACED IN 串口通信.OBJ
+COMPILER INVOKED BY: D:\程序\C51\BIN\C51.EXE 串口通信.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #include<uart_com_temp.h>
+   3          
+   4          sbit P20=P2^0;
+   5          sbit P10=P1^0;
+   6          
+   7          void delay(unsigned int nN);
+   8          
+   9          void main()
+  10          {
+  11   1              //unsigned char chRcv;
+  12   1              //unsigned int i;
+  13   1              //unsigned int  t;
+  14   1              unsigned int cs = 97;
+  15   1              InitUartComm(12,9600);
+  16   1          Send_Comm(cs);
+  17   1              delay(500);
+  18   1      }
+  19          void delay(unsigned int nN)
+  20          {
+  21   1              unsigned int a,b,c;
+  22   1              for(a=0;a<nN;a++)
+  23   1                      for(b=0;b<50;b++)
+  24   1                              for(c=0;c<50;c++);
+  25   1      } 
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    238    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1      18
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

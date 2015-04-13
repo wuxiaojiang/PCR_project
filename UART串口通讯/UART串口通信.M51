@@ -1,0 +1,257 @@
+BL51 BANKED LINKER/LOCATER V6.00                                                        04/13/2015  22:55:11  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.00, INVOKED BY:
+D:\程序\C51\BIN\BL51.EXE STARTUP.obj, 串口通信.obj TO UART串口通信 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  串口通信.obj (串口通信)
+  D:\程序\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  D:\程序\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  D:\程序\C51\LIB\C51FPS.LIB (?C?FCAST)
+  D:\程序\C51\LIB\C51FPS.LIB (?C?CASTF)
+  D:\程序\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  D:\程序\C51\LIB\C51S.LIB (?C_INIT)
+  D:\程序\C51\LIB\C51S.LIB (?C?LMUL)
+  D:\程序\C51\LIB\C51S.LIB (?C?LNEG)
+  D:\程序\C51\LIB\C51S.LIB (?C?ULSHR)
+
+
+LINK MAP OF MODULE:  UART串口通信 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0012H     UNIT         _DATA_GROUP_
+            DATA    001AH     0001H     UNIT         ?DT?串口通信
+            IDATA   001BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     02D5H     UNIT         ?C?LIB_CODE
+            CODE    0AD5H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0B61H     008CH     UNIT         ?PR?_INITUARTCOMM?串口通信
+            CODE    0BEDH     002CH     UNIT         ?PR?_DELAY?串口通信
+            CODE    0C19H     0026H     UNIT         ?PR?MAIN?串口通信
+            CODE    0C3FH     000BH     UNIT         ?PR?RCV_COMM?串口通信
+            CODE    0C4AH     0005H     UNIT         ?PR?_SEND_COMM?串口通信
+            CODE    0C4FH     0004H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   UART串口通信 (?C_STARTUP)
+
+
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
+  +--> ?PR?MAIN?串口通信
+  +--> ?C_INITSEG
+
+?PR?MAIN?串口通信                  0008H    0002H
+BL51 BANKED LINKER/LOCATER V6.00                                                      04/13/2015  22:55:11  PAGE 2
+
+
+  +--> ?PR?_INITUARTCOMM?串口通信
+  +--> ?PR?_SEND_COMM?串口通信
+  +--> ?PR?_DELAY?串口通信
+
+?PR?_INITUARTCOMM?串口通信         000AH    0010H
+
+
+
+SYMBOL TABLE OF MODULE:  UART串口通信 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0AD5H         SEGMENT       ?C_C51STARTUP
+  I:001BH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0AD8H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0AD5H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0AD5H         LINE#         133
+  C:0AD7H         LINE#         134
+  C:0AD8H         LINE#         135
+  C:0AD9H         LINE#         136
+  C:0ADBH         LINE#         185
+  C:0ADEH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        串口通信
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:001AH         PUBLIC        chComDat
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0C3FH         PUBLIC        Rcv_Comm
+  B:0098H.0       PUBLIC        RI
+BL51 BANKED LINKER/LOCATER V6.00                                                      04/13/2015  22:55:11  PAGE 3
+
+
+  B:0098H.1       PUBLIC        TI
+  D:00CBH         PUBLIC        RCAP2H
+  C:0B61H         PUBLIC        _InitUartComm
+  D:00CAH         PUBLIC        RCAP2L
+  C:0C19H         PUBLIC        main
+  B:00C8H.4       PUBLIC        TCLK
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:00C8H.2       PUBLIC        TR2
+  C:0C4AH         PUBLIC        _Send_Comm
+  D:00C8H         PUBLIC        T2CON
+  C:0BEDH         PUBLIC        _delay
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _INITUARTCOMM
+  D:000AH         SYMBOL        fExtal
+  D:000EH         SYMBOL        lBaudRate
+  -------         DO            
+  D:0012H         SYMBOL        nM
+  D:0016H         SYMBOL        nInt
+  D:0007H         SYMBOL        cT2H1
+  D:0003H         SYMBOL        cT2L1
+  D:0004H         SYMBOL        fF1
+  -------         ENDDO         
+  C:0B61H         LINE#         19
+  C:0B69H         LINE#         20
+  C:0B69H         LINE#         25
+  C:0BA4H         LINE#         26
+  C:0BAFH         LINE#         27
+  C:0BC5H         LINE#         29
+  C:0BC7H         LINE#         30
+  C:0BDBH         LINE#         31
+  C:0BDBH         LINE#         33
+  C:0BDEH         LINE#         34
+  C:0BE0H         LINE#         35
+  C:0BE2H         LINE#         36
+  C:0BE4H         LINE#         37
+  C:0BE6H         LINE#         38
+  C:0BE9H         LINE#         39
+  C:0BECH         LINE#         40
+  -------         ENDPROC       _INITUARTCOMM
+  -------         PROC          _SEND_COMM
+  D:0007H         SYMBOL        chComDat
+  C:0C4AH         LINE#         47
+  C:0C4AH         LINE#         48
+  C:0C4AH         LINE#         49
+  C:0C4CH         LINE#         50
+  C:0C4EH         LINE#         51
+  -------         ENDPROC       _SEND_COMM
+  -------         PROC          RCV_COMM
+  C:0C3FH         LINE#         58
+  C:0C3FH         LINE#         59
+  C:0C3FH         LINE#         60
+  C:0C42H         LINE#         61
+  C:0C42H         LINE#         62
+  C:0C45H         LINE#         63
+BL51 BANKED LINKER/LOCATER V6.00                                                      04/13/2015  22:55:11  PAGE 4
+
+
+  C:0C47H         LINE#         64
+  C:0C47H         LINE#         65
+  C:0C49H         LINE#         66
+  -------         ENDPROC       RCV_COMM
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        cs
+  -------         ENDDO         
+  C:0C19H         LINE#         9
+  C:0C19H         LINE#         10
+  C:0C19H         LINE#         14
+  C:0C1FH         LINE#         15
+  C:0C33H         LINE#         16
+  C:0C38H         LINE#         17
+  -------         ENDPROC       MAIN
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        nN
+  -------         DO            
+  D:0004H         SYMBOL        a
+  D:0002H         SYMBOL        b
+  D:0082H         SYMBOL        c
+  -------         ENDDO         
+  C:0BEDH         LINE#         19
+  C:0BEDH         LINE#         20
+  C:0BEDH         LINE#         22
+  C:0BF7H         LINE#         23
+  C:0BFAH         LINE#         24
+  C:0C18H         LINE#         25
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        串口通信
+
+  -------         MODULE        ?C?FPMUL
+  C:0800H         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?FPDIV
+  C:0909H         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FCAST
+  C:09B0H         PUBLIC        ?C?FCASTC
+  C:09ABH         PUBLIC        ?C?FCASTI
+  C:09A6H         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        ?C?CASTF
+  C:09E4H         PUBLIC        ?C?CASTF
+  -------         ENDMOD        ?C?CASTF
+
+  -------         MODULE        ?C?LMUL
+  C:0A65H         PUBLIC        ?C?LMUL
+  -------         ENDMOD        ?C?LMUL
+
+  -------         MODULE        ?C?LNEG
+  C:0AB4H         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+BL51 BANKED LINKER/LOCATER V6.00                                                      04/13/2015  22:55:11  PAGE 5
+
+
+  -------         MODULE        ?C?ULSHR
+  C:0AC2H         PUBLIC        ?C?ULSHR
+  -------         ENDMOD        ?C?ULSHR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RCV_COMM?串口通信
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0100H BYTE (12%) *
+******************************************************************************
+
+Program Size: data=28.0 xdata=0 code=1110
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
