@@ -1,4 +1,4 @@
-C51 COMPILER V8.02   串口通信                                                              04/13/2015 22:55:11 PAGE 1   
+C51 COMPILER V8.02   串口通信                                                              04/13/2015 23:32:41 PAGE 1   
 
 
 C51 COMPILER V8.02, COMPILATION OF MODULE 串口通信
@@ -18,28 +18,32 @@ line level    source
    9          void main()
   10          {
   11   1              //unsigned char chRcv;
-  12   1              //unsigned int i;
+  12   1              unsigned int i;
   13   1              //unsigned int  t;
-  14   1              unsigned int cs = 97;
-  15   1              InitUartComm(12,9600);
-  16   1          Send_Comm(cs);
-  17   1              delay(500);
-  18   1      }
-  19          void delay(unsigned int nN)
-  20          {
-  21   1              unsigned int a,b,c;
-  22   1              for(a=0;a<nN;a++)
-  23   1                      for(b=0;b<50;b++)
-  24   1                              for(c=0;c<50;c++);
-  25   1      } 
+  14   1              unsigned int cs = 1;
+  15   1              for (i=0;i<100;i++)
+  16   1              {
+  17   2              InitUartComm(12,9600);
+  18   2          Send_Comm(cs);
+  19   2              cs++;
+  20   2              delay(5);}
+  21   1              delay(500);
+  22   1      }
+  23          void delay(unsigned int nN)
+  24          {
+  25   1              unsigned int a,b,c;
+  26   1              for(a=0;a<nN;a++)
+  27   1                      for(b=0;b<50;b++)
+  28   1                              for(c=0;c<50;c++);
+  29   1      } 
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    238    ----
+   CODE SIZE        =    275    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      1      18
+   DATA SIZE        =      1      20
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

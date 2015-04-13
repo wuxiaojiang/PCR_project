@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"main.obj" 
+TO "c_t_d" 
+RAMSIZE(256) 

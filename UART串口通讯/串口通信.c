@@ -9,11 +9,15 @@ void delay(unsigned int nN);
 void main()
 {
 	//unsigned char chRcv;
-	//unsigned int i;
+	unsigned int i;
 	//unsigned int  t;
-	unsigned int cs = 97;
+	unsigned int cs = 1;
+	for (i=0;i<100;i++)
+	{
 	InitUartComm(12,9600);
     Send_Comm(cs);
+	cs++;
+	delay(5);}
 	delay(500);
 }
 void delay(unsigned int nN)

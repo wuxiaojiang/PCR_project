@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.00                                                        04/13/2015  22:55:11  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.00                                                        04/13/2015  23:32:41  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.00, INVOKED BY:
@@ -30,9 +30,9 @@ LINK MAP OF MODULE:  UART串口通信 (?C_STARTUP)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     0012H     UNIT         _DATA_GROUP_
-            DATA    001AH     0001H     UNIT         ?DT?串口通信
-            IDATA   001BH     0001H     UNIT         ?STACK
+            DATA    0008H     0014H     UNIT         _DATA_GROUP_
+            DATA    001CH     0001H     UNIT         ?DT?串口通信
+            IDATA   001DH     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
@@ -40,11 +40,11 @@ LINK MAP OF MODULE:  UART串口通信 (?C_STARTUP)
             CODE    0800H     02D5H     UNIT         ?C?LIB_CODE
             CODE    0AD5H     008CH     UNIT         ?C_C51STARTUP
             CODE    0B61H     008CH     UNIT         ?PR?_INITUARTCOMM?串口通信
-            CODE    0BEDH     002CH     UNIT         ?PR?_DELAY?串口通信
-            CODE    0C19H     0026H     UNIT         ?PR?MAIN?串口通信
-            CODE    0C3FH     000BH     UNIT         ?PR?RCV_COMM?串口通信
-            CODE    0C4AH     0005H     UNIT         ?PR?_SEND_COMM?串口通信
-            CODE    0C4FH     0004H     UNIT         ?C_INITSEG
+            CODE    0BEDH     004BH     UNIT         ?PR?MAIN?串口通信
+            CODE    0C38H     002CH     UNIT         ?PR?_DELAY?串口通信
+            CODE    0C64H     000BH     UNIT         ?PR?RCV_COMM?串口通信
+            CODE    0C6FH     0005H     UNIT         ?PR?_SEND_COMM?串口通信
+            CODE    0C74H     0004H     UNIT         ?C_INITSEG
 
 
 
@@ -58,15 +58,15 @@ SEGMENT                              DATA_GROUP
   +--> ?PR?MAIN?串口通信
   +--> ?C_INITSEG
 
-?PR?MAIN?串口通信                  0008H    0002H
-BL51 BANKED LINKER/LOCATER V6.00                                                      04/13/2015  22:55:11  PAGE 2
+?PR?MAIN?串口通信                  0008H    0004H
+BL51 BANKED LINKER/LOCATER V6.00                                                      04/13/2015  23:32:41  PAGE 2
 
 
   +--> ?PR?_INITUARTCOMM?串口通信
   +--> ?PR?_SEND_COMM?串口通信
   +--> ?PR?_DELAY?串口通信
 
-?PR?_INITUARTCOMM?串口通信         000AH    0010H
+?PR?_INITUARTCOMM?串口通信         000CH    0010H
 
 
 
@@ -77,7 +77,7 @@ SYMBOL TABLE OF MODULE:  UART串口通信 (?C_STARTUP)
 
   -------         MODULE        ?C_STARTUP
   C:0AD5H         SEGMENT       ?C_C51STARTUP
-  I:001BH         SEGMENT       ?STACK
+  I:001DH         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
   D:00F0H         SYMBOL        B
@@ -114,35 +114,35 @@ SYMBOL TABLE OF MODULE:  UART串口通信 (?C_STARTUP)
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
-  D:001AH         PUBLIC        chComDat
+  D:001CH         PUBLIC        chComDat
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
-  C:0C3FH         PUBLIC        Rcv_Comm
+  C:0C64H         PUBLIC        Rcv_Comm
   B:0098H.0       PUBLIC        RI
-BL51 BANKED LINKER/LOCATER V6.00                                                      04/13/2015  22:55:11  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.00                                                      04/13/2015  23:32:41  PAGE 3
 
 
   B:0098H.1       PUBLIC        TI
   D:00CBH         PUBLIC        RCAP2H
   C:0B61H         PUBLIC        _InitUartComm
   D:00CAH         PUBLIC        RCAP2L
-  C:0C19H         PUBLIC        main
+  C:0BEDH         PUBLIC        main
   B:00C8H.4       PUBLIC        TCLK
   D:0099H         PUBLIC        SBUF
   D:0087H         PUBLIC        PCON
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   B:00C8H.2       PUBLIC        TR2
-  C:0C4AH         PUBLIC        _Send_Comm
+  C:0C6FH         PUBLIC        _Send_Comm
   D:00C8H         PUBLIC        T2CON
-  C:0BEDH         PUBLIC        _delay
+  C:0C38H         PUBLIC        _delay
   D:00D0H         PUBLIC        PSW
   -------         PROC          _INITUARTCOMM
-  D:000AH         SYMBOL        fExtal
-  D:000EH         SYMBOL        lBaudRate
+  D:000CH         SYMBOL        fExtal
+  D:0010H         SYMBOL        lBaudRate
   -------         DO            
-  D:0012H         SYMBOL        nM
-  D:0016H         SYMBOL        nInt
+  D:0014H         SYMBOL        nM
+  D:0018H         SYMBOL        nInt
   D:0007H         SYMBOL        cT2H1
   D:0003H         SYMBOL        cT2L1
   D:0004H         SYMBOL        fF1
@@ -166,36 +166,41 @@ SYMBOL TABLE OF MODULE:  UART串口通信 (?C_STARTUP)
   -------         ENDPROC       _INITUARTCOMM
   -------         PROC          _SEND_COMM
   D:0007H         SYMBOL        chComDat
-  C:0C4AH         LINE#         47
-  C:0C4AH         LINE#         48
-  C:0C4AH         LINE#         49
-  C:0C4CH         LINE#         50
-  C:0C4EH         LINE#         51
+  C:0C6FH         LINE#         47
+  C:0C6FH         LINE#         48
+  C:0C6FH         LINE#         49
+  C:0C71H         LINE#         50
+  C:0C73H         LINE#         51
   -------         ENDPROC       _SEND_COMM
   -------         PROC          RCV_COMM
-  C:0C3FH         LINE#         58
-  C:0C3FH         LINE#         59
-  C:0C3FH         LINE#         60
-  C:0C42H         LINE#         61
-  C:0C42H         LINE#         62
-  C:0C45H         LINE#         63
-BL51 BANKED LINKER/LOCATER V6.00                                                      04/13/2015  22:55:11  PAGE 4
+  C:0C64H         LINE#         58
+  C:0C64H         LINE#         59
+  C:0C64H         LINE#         60
+  C:0C67H         LINE#         61
+  C:0C67H         LINE#         62
+  C:0C6AH         LINE#         63
+BL51 BANKED LINKER/LOCATER V6.00                                                      04/13/2015  23:32:41  PAGE 4
 
 
-  C:0C47H         LINE#         64
-  C:0C47H         LINE#         65
-  C:0C49H         LINE#         66
+  C:0C6CH         LINE#         64
+  C:0C6CH         LINE#         65
+  C:0C6EH         LINE#         66
   -------         ENDPROC       RCV_COMM
   -------         PROC          MAIN
   -------         DO            
-  D:0008H         SYMBOL        cs
+  D:0008H         SYMBOL        i
+  D:000AH         SYMBOL        cs
   -------         ENDDO         
-  C:0C19H         LINE#         9
-  C:0C19H         LINE#         10
-  C:0C19H         LINE#         14
-  C:0C1FH         LINE#         15
-  C:0C33H         LINE#         16
-  C:0C38H         LINE#         17
+  C:0BEDH         LINE#         9
+  C:0BEDH         LINE#         10
+  C:0BEDH         LINE#         14
+  C:0BF3H         LINE#         15
+  C:0BF8H         LINE#         16
+  C:0BF8H         LINE#         17
+  C:0C0CH         LINE#         18
+  C:0C11H         LINE#         19
+  C:0C19H         LINE#         20
+  C:0C31H         LINE#         21
   -------         ENDPROC       MAIN
   -------         PROC          _DELAY
   D:0006H         SYMBOL        nN
@@ -204,12 +209,12 @@ SYMBOL TABLE OF MODULE:  UART串口通信 (?C_STARTUP)
   D:0002H         SYMBOL        b
   D:0082H         SYMBOL        c
   -------         ENDDO         
-  C:0BEDH         LINE#         19
-  C:0BEDH         LINE#         20
-  C:0BEDH         LINE#         22
-  C:0BF7H         LINE#         23
-  C:0BFAH         LINE#         24
-  C:0C18H         LINE#         25
+  C:0C38H         LINE#         23
+  C:0C38H         LINE#         24
+  C:0C38H         LINE#         26
+  C:0C42H         LINE#         27
+  C:0C45H         LINE#         28
+  C:0C63H         LINE#         29
   -------         ENDPROC       _DELAY
   -------         ENDMOD        串口通信
 
@@ -234,13 +239,13 @@ SYMBOL TABLE OF MODULE:  UART串口通信 (?C_STARTUP)
   -------         MODULE        ?C?LMUL
   C:0A65H         PUBLIC        ?C?LMUL
   -------         ENDMOD        ?C?LMUL
+BL51 BANKED LINKER/LOCATER V6.00                                                      04/13/2015  23:32:41  PAGE 5
+
+
 
   -------         MODULE        ?C?LNEG
   C:0AB4H         PUBLIC        ?C?LNEG
   -------         ENDMOD        ?C?LNEG
-
-BL51 BANKED LINKER/LOCATER V6.00                                                      04/13/2015  22:55:11  PAGE 5
-
 
   -------         MODULE        ?C?ULSHR
   C:0AC2H         PUBLIC        ?C?ULSHR
@@ -250,8 +255,8 @@ SYMBOL TABLE OF MODULE:  UART串口通信 (?C_STARTUP)
     SEGMENT: ?PR?RCV_COMM?串口通信
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0100H BYTE (12%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0125H BYTE (14%) *
 ******************************************************************************
 
-Program Size: data=28.0 xdata=0 code=1110
+Program Size: data=30.0 xdata=0 code=1147
 LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
