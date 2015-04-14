@@ -22,7 +22,7 @@ data_gen.t = 0
 # 绘图  
 fig, ax = plt.subplots()  
 line, = ax.plot([], [], lw=2)  
-ax.set_ylim(0, 40)  
+ax.set_ylim(0, 100)  
 ax.set_xlim(0, 5)  
 ax.grid()  
 xdata, ydata = [], []  
@@ -44,6 +44,6 @@ def run(data):
       
 # 每隔10秒调用函数run,run的参数为函数data_gen,  
 # 表示图形只更新需要绘制的元素  
-ani = animation.FuncAnimation(fig, run, data_gen, blit=True, interval=0.03,  
+ani = animation.FuncAnimation(fig, run, data_gen, blit=True, interval=0.01,  
     repeat=False)  
 plt.show()  
