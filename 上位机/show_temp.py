@@ -15,7 +15,9 @@ def data_gen():
     cnt = 0  
     while True:    
         t += 0.05
-        c = ord(ser.read(1)) 
+        c = ord(ser.read(1))
+        if(93<c<96):
+            c=94
         yield t, c  
 data_gen.t = 0  
   
@@ -44,6 +46,6 @@ def run(data):
       
 # 每隔10秒调用函数run,run的参数为函数data_gen,  
 # 表示图形只更新需要绘制的元素  
-ani = animation.FuncAnimation(fig, run, data_gen, blit=True, interval=0.01,  
+ani = animation.FuncAnimation(fig, run, data_gen, blit=True, interval=1,  
     repeat=False)  
 plt.show()  

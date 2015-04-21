@@ -7,7 +7,7 @@
 #--------------------------------------------------
 import socket
 import time
-host = '192.168.1.104'
+host = '192.168.1.106'
 port = 1080
 def s_and_r(host,port,message):
     s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
